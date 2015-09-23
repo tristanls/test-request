@@ -1,0 +1,10 @@
+{
+  "name": "test-request",
+  "version": "1.0.0",
+  "description": "Helper to test HTTP requests",
+  "main": "index.js",
+  "contributors": [
+    "Tristan Slominski <tristan.slominski@gmail.com>"
+  ],
+  "license": "MIT"
+}
