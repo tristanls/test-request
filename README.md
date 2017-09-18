@@ -34,6 +34,25 @@ tests["single server usage"] = function(test)
     });
     req.end();
 }
+
+// optionally test request object errors
+tests["single server usage req error"] = function(test)
+{
+    var server = http.createServer(SERVER_OPTIONS);
+    /* server setup and .listen() code */
+    var req = http.request(REQUEST_OPTIONS);
+    testRequest(test.done, server, req,
+        function(res)
+        {
+            test.ok(false, 'expected no response');
+        },
+        function(error)
+        {
+            test.equal(error.code, "ECONNRESET", 'expected connection to be reset');
+        }
+    );
+    req.end();
+}
 ```
 
 Multiple servers being tested:
