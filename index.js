@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function testRequest(done, server, req, tests)
+module.exports = function testRequest(done, server, req, tests, errorTests)
 {
     req.on('response', function(res)
     {
@@ -42,9 +42,11 @@ module.exports = function testRequest(done, server, req, tests)
         tests(res);
     });
 
-    req.on('error', function(error)
+    errorTests = errorTests || function(error)
     {
         console.log('test request emitted error: ', error);
         throw error;
-    });
+    };
+
+    req.on('error', errorTests);
 };
