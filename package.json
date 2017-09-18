@@ -1,6 +1,6 @@
 {
   "name": "test-request",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Helper to test HTTP requests",
   "main": "index.js",
   "contributors": [
